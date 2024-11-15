@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Track mood #<%= @the_track_mood.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/track_moods">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_track_mood/<%= @the_track_mood.id %>">
+          Delete track mood
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Track
+      </dt>
+      <dd>
+        <%= @the_track_mood.track_id %>
+      </dd>
+
+      <dt>
+        Mood
+      </dt>
+      <dd>
+        <%= @the_track_mood.mood_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_track_mood.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_track_mood.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit track mood
+    </h2>
+
+    <form action="/modify_track_mood/<%= @the_track_mood.id %>"  method="post" >
+      <div>
+        <label for="track_id_box">
+          Track
+        </label>
+
+        <input type="text" id="track_id_box" name="query_track_id" value="<%= @the_track_mood.track_id %>">
+      </div>
+
+      <div>
+        <label for="mood_id_box">
+          Mood
+        </label>
+
+        <input type="text" id="mood_id_box" name="query_mood_id" value="<%= @the_track_mood.mood_id %>">
+      </div>
+
+      <button>
+        Update track mood
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

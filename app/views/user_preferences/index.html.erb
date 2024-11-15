@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all user preferences
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new user preference
+    </h2>
+
+    <form action="/insert_user_preference" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="preference_key_box">
+          Preference key
+        </label>
+
+        <input type="text" id="preference_key_box" name="query_preference_key">
+      </div>
+
+      <div>
+        <label for="preference_value_box">
+          Preference value
+        </label>
+
+        <input type="text" id="preference_value_box" name="query_preference_value">
+      </div>
+
+      <button>
+        Create user preference
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Preference key
+        </th>
+
+        <th>
+          Preference value
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_user_preferences.each do |a_user_preference| %>
+      <tr>
+        <td>
+          <%= a_user_preference.id %>
+        </td>
+
+        <td>
+          <%= a_user_preference.user_id %>
+        </td>
+
+        <td>
+          <%= a_user_preference.preference_key %>
+        </td>
+
+        <td>
+          <%= a_user_preference.preference_value %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_user_preference.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_user_preference.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/user_preferences/<%= a_user_preference.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

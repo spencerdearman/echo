@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all tracks
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new track
+    </h2>
+
+    <form action="/insert_track" method="post">
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title">
+      </div>
+
+      <div>
+        <label for="artist_id_box">
+          Artist
+        </label>
+
+        <input type="text" id="artist_id_box" name="query_artist_id">
+      </div>
+
+      <div>
+        <label for="album_name_box">
+          Album name
+        </label>
+
+        <input type="text" id="album_name_box" name="query_album_name">
+      </div>
+
+      <div>
+        <label for="platform_id_box">
+          Platform
+        </label>
+
+        <input type="text" id="platform_id_box" name="query_platform_id">
+      </div>
+
+      <div>
+        <label for="duration_ms_box">
+          Duration ms
+        </label>
+
+        <input type="text" id="duration_ms_box" name="query_duration_ms">
+      </div>
+
+      <button>
+        Create track
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Artist
+        </th>
+
+        <th>
+          Album name
+        </th>
+
+        <th>
+          Platform
+        </th>
+
+        <th>
+          Duration ms
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_tracks.each do |a_track| %>
+      <tr>
+        <td>
+          <%= a_track.id %>
+        </td>
+
+        <td>
+          <%= a_track.title %>
+        </td>
+
+        <td>
+          <%= a_track.artist_id %>
+        </td>
+
+        <td>
+          <%= a_track.album_name %>
+        </td>
+
+        <td>
+          <%= a_track.platform_id %>
+        </td>
+
+        <td>
+          <%= a_track.duration_ms %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_track.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_track.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/tracks/<%= a_track.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Playlist track #<%= @the_playlist_track.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/playlist_tracks">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_playlist_track/<%= @the_playlist_track.id %>">
+          Delete playlist track
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Playlist
+      </dt>
+      <dd>
+        <%= @the_playlist_track.playlist_id %>
+      </dd>
+
+      <dt>
+        Track
+      </dt>
+      <dd>
+        <%= @the_playlist_track.track_id %>
+      </dd>
+
+      <dt>
+        Position
+      </dt>
+      <dd>
+        <%= @the_playlist_track.position %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_playlist_track.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_playlist_track.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit playlist track
+    </h2>
+
+    <form action="/modify_playlist_track/<%= @the_playlist_track.id %>"  method="post" >
+      <div>
+        <label for="playlist_id_box">
+          Playlist
+        </label>
+
+        <input type="text" id="playlist_id_box" name="query_playlist_id" value="<%= @the_playlist_track.playlist_id %>">
+      </div>
+
+      <div>
+        <label for="track_id_box">
+          Track
+        </label>
+
+        <input type="text" id="track_id_box" name="query_track_id" value="<%= @the_playlist_track.track_id %>">
+      </div>
+
+      <div>
+        <label for="position_box">
+          Position
+        </label>
+
+        <input type="text" id="position_box" name="query_position" value="<%= @the_playlist_track.position %>">
+      </div>
+
+      <button>
+        Update playlist track
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

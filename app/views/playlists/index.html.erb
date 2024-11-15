@@ -1,0 +1,194 @@
+<div>
+  <div>
+    <h1>
+      List of all playlists
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new playlist
+    </h2>
+
+    <form action="/insert_playlist" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" rows="3"></textarea>
+      </div>
+
+      <div>
+        <input type="checkbox" id="is_public_box" name="query_is_public" value="1">
+
+        <label for="is_public_box">Is public</label>
+      </div>
+
+      <div>
+        <label for="playlist_cover_url_box">
+          Playlist cover url
+        </label>
+
+        <input type="text" id="playlist_cover_url_box" name="query_playlist_cover_url">
+      </div>
+
+      <div>
+        <input type="checkbox" id="is_ai_generated_box" name="query_is_ai_generated" value="1">
+
+        <label for="is_ai_generated_box">Is ai generated</label>
+      </div>
+
+      <div>
+        <label for="playlist_tracks_count_box">
+          Playlist tracks count
+        </label>
+
+        <input type="text" id="playlist_tracks_count_box" name="query_playlist_tracks_count">
+      </div>
+
+      <div>
+        <label for="likes_count_box">
+          Likes count
+        </label>
+
+        <input type="text" id="likes_count_box" name="query_likes_count">
+      </div>
+
+      <button>
+        Create playlist
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Is public
+        </th>
+
+        <th>
+          Playlist cover url
+        </th>
+
+        <th>
+          Is ai generated
+        </th>
+
+        <th>
+          Playlist tracks count
+        </th>
+
+        <th>
+          Likes count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_playlists.each do |a_playlist| %>
+      <tr>
+        <td>
+          <%= a_playlist.id %>
+        </td>
+
+        <td>
+          <%= a_playlist.user_id %>
+        </td>
+
+        <td>
+          <%= a_playlist.name %>
+        </td>
+
+        <td>
+          <%= a_playlist.description %>
+        </td>
+
+        <td>
+          <%= a_playlist.is_public %>
+        </td>
+
+        <td>
+          <%= a_playlist.playlist_cover_url %>
+        </td>
+
+        <td>
+          <%= a_playlist.is_ai_generated %>
+        </td>
+
+        <td>
+          <%= a_playlist.playlist_tracks_count %>
+        </td>
+
+        <td>
+          <%= a_playlist.likes_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_playlist.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_playlist.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/playlists/<%= a_playlist.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

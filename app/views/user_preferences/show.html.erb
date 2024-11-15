@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      User preference #<%= @the_user_preference.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/user_preferences">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_user_preference/<%= @the_user_preference.id %>">
+          Delete user preference
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_user_preference.user_id %>
+      </dd>
+
+      <dt>
+        Preference key
+      </dt>
+      <dd>
+        <%= @the_user_preference.preference_key %>
+      </dd>
+
+      <dt>
+        Preference value
+      </dt>
+      <dd>
+        <%= @the_user_preference.preference_value %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_user_preference.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_user_preference.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit user preference
+    </h2>
+
+    <form action="/modify_user_preference/<%= @the_user_preference.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_user_preference.user_id %>">
+      </div>
+
+      <div>
+        <label for="preference_key_box">
+          Preference key
+        </label>
+
+        <input type="text" id="preference_key_box" name="query_preference_key" value="<%= @the_user_preference.preference_key %>">
+      </div>
+
+      <div>
+        <label for="preference_value_box">
+          Preference value
+        </label>
+
+        <input type="text" id="preference_value_box" name="query_preference_value" value="<%= @the_user_preference.preference_value %>">
+      </div>
+
+      <button>
+        Update user preference
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

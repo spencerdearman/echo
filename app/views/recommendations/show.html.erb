@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Recommendation #<%= @the_recommendation.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/recommendations">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_recommendation/<%= @the_recommendation.id %>">
+          Delete recommendation
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_recommendation.user_id %>
+      </dd>
+
+      <dt>
+        Playlist
+      </dt>
+      <dd>
+        <%= @the_recommendation.playlist_id %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_recommendation.description %>
+      </dd>
+
+      <dt>
+        Recommendation type
+      </dt>
+      <dd>
+        <%= @the_recommendation.recommendation_type %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_recommendation.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_recommendation.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit recommendation
+    </h2>
+
+    <form action="/modify_recommendation/<%= @the_recommendation.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_recommendation.user_id %>">
+      </div>
+
+      <div>
+        <label for="playlist_id_box">
+          Playlist
+        </label>
+
+        <input type="text" id="playlist_id_box" name="query_playlist_id" value="<%= @the_recommendation.playlist_id %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_recommendation.description %></textarea>
+      </div>
+
+      <div>
+        <label for="recommendation_type_box">
+          Recommendation type
+        </label>
+
+        <input type="text" id="recommendation_type_box" name="query_recommendation_type" value="<%= @the_recommendation.recommendation_type %>">
+      </div>
+
+      <button>
+        Update recommendation
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
