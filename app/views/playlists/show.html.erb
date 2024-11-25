@@ -1,0 +1,176 @@
+<div>
+  <div>
+    <h1>
+      Playlist #<%= @the_playlist.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/playlists">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_playlist/<%= @the_playlist.id %>">
+          Delete playlist
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_playlist.user_id %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_playlist.name %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_playlist.description %>
+      </dd>
+
+      <dt>
+        Is public
+      </dt>
+      <dd>
+        <%= @the_playlist.is_public %>
+      </dd>
+
+      <dt>
+        Playlist cover url
+      </dt>
+      <dd>
+        <%= @the_playlist.playlist_cover_url %>
+      </dd>
+
+      <dt>
+        Is ai generated
+      </dt>
+      <dd>
+        <%= @the_playlist.is_ai_generated %>
+      </dd>
+
+      <dt>
+        Playlist tracks count
+      </dt>
+      <dd>
+        <%= @the_playlist.playlist_tracks_count %>
+      </dd>
+
+      <dt>
+        Likes count
+      </dt>
+      <dd>
+        <%= @the_playlist.likes_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_playlist.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_playlist.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit playlist
+    </h2>
+
+    <form action="/modify_playlist/<%= @the_playlist.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_playlist.user_id %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_playlist.name %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_playlist.description %></textarea>
+      </div>
+
+      <div>
+        <input type="checkbox" id="is_public_box" name="query_is_public" value="1" <%= "checked" if @the_playlist.is_public %>>
+
+        <label for="is_public_box">
+            Is public
+        </label>
+      </div>
+
+      <div>
+        <label for="playlist_cover_url_box">
+          Playlist cover url
+        </label>
+
+        <input type="text" id="playlist_cover_url_box" name="query_playlist_cover_url" value="<%= @the_playlist.playlist_cover_url %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="is_ai_generated_box" name="query_is_ai_generated" value="1" <%= "checked" if @the_playlist.is_ai_generated %>>
+
+        <label for="is_ai_generated_box">
+            Is ai generated
+        </label>
+      </div>
+
+      <div>
+        <label for="playlist_tracks_count_box">
+          Playlist tracks count
+        </label>
+
+        <input type="text" id="playlist_tracks_count_box" name="query_playlist_tracks_count" value="<%= @the_playlist.playlist_tracks_count %>">
+      </div>
+
+      <div>
+        <label for="likes_count_box">
+          Likes count
+        </label>
+
+        <input type="text" id="likes_count_box" name="query_likes_count" value="<%= @the_playlist.likes_count %>">
+      </div>
+
+      <button>
+        Update playlist
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

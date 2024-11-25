@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Track #<%= @the_track.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/tracks">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_track/<%= @the_track.id %>">
+          Delete track
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_track.title %>
+      </dd>
+
+      <dt>
+        Artist
+      </dt>
+      <dd>
+        <%= @the_track.artist_id %>
+      </dd>
+
+      <dt>
+        Album name
+      </dt>
+      <dd>
+        <%= @the_track.album_name %>
+      </dd>
+
+      <dt>
+        Platform
+      </dt>
+      <dd>
+        <%= @the_track.platform_id %>
+      </dd>
+
+      <dt>
+        Duration ms
+      </dt>
+      <dd>
+        <%= @the_track.duration_ms %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_track.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_track.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit track
+    </h2>
+
+    <form action="/modify_track/<%= @the_track.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_track.title %>">
+      </div>
+
+      <div>
+        <label for="artist_id_box">
+          Artist
+        </label>
+
+        <input type="text" id="artist_id_box" name="query_artist_id" value="<%= @the_track.artist_id %>">
+      </div>
+
+      <div>
+        <label for="album_name_box">
+          Album name
+        </label>
+
+        <input type="text" id="album_name_box" name="query_album_name" value="<%= @the_track.album_name %>">
+      </div>
+
+      <div>
+        <label for="platform_id_box">
+          Platform
+        </label>
+
+        <input type="text" id="platform_id_box" name="query_platform_id" value="<%= @the_track.platform_id %>">
+      </div>
+
+      <div>
+        <label for="duration_ms_box">
+          Duration ms
+        </label>
+
+        <input type="text" id="duration_ms_box" name="query_duration_ms" value="<%= @the_track.duration_ms %>">
+      </div>
+
+      <button>
+        Update track
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
