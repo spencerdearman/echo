@@ -1,0 +1,20 @@
+name: Set Environment Variables
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  set-env-vars:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set Apple Music Developer Token
+        run: echo "APPLE_MUSIC_DEVELOPER_TOKEN=${{ secrets.APPLE_MUSIC_DEVELOPER_TOKEN }}" >> $GITHUB_ENV
