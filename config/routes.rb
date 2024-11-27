@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "home#home"  
+
   # Routes for the Track mood resource:
 
   # CREATE

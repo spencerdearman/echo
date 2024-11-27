@@ -1,0 +1,7 @@
+<h1>Welcome to Echo</h1>
+
+<% if user_signed_in? %>
+  <li>
+    Welcome, <%= current_user.email %>
+  </li>
+<% end %>

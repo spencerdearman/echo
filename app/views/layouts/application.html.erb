@@ -11,6 +11,51 @@
   </head>
 
   <body>
+    <!-- Flash Messages -->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <!-- Navigation Bar -->
+    <nav>
+      <ul>
+        <!-- App Name/Logo -->
+        <li>
+          <%= link_to "MyApp", root_path %>
+        </li>
+
+        <!-- User Account Links -->
+        <% if user_signed_in? %>
+          <!-- Navigation Links -->
+          <li>
+            <%= link_to "Playlists", playlists_path %>
+          </li>
+          <li>
+            <%= link_to "Tracks", tracks_path %>
+          </li>
+          <li>
+            <%= link_to "Moods", moods_path %>
+          </li>
+
+          <!-- Authentication Links -->
+          <li>
+            <%= link_to "Edit Profile", edit_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          </li>
+
+        <% else %>
+          <li>
+            <%= link_to "Sign In", new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to "Sign Up", new_user_registration_path %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
     <%= yield %>
   </body>
 </html>
