@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: "home#home"  
 
+  get("/profile_configuration", { :controller => "users", :action => "profile_configuration" })
+  post("/profile_configuration", { :controller => "users", :action => "update_profile" })
+
   # Routes for the Track mood resource:
 
   # CREATE

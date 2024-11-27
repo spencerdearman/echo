@@ -1,0 +1,22 @@
+<h2>Complete Your Profile</h2>
+
+<%= form_with model: @user, url: profile_configuration_path, method: :post, local: true do |form| %>
+  <div>
+    <%= form.label :username, "Username" %>
+    <%= form.text_field :username, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :bio, "Bio" %>
+    <%= form.text_area :bio, placeholder: "Tell us about yourself" %>
+  </div>
+
+  <div>
+    <%= form.label :profile_picture_url, "Profile Picture URL" %>
+    <%= form.text_field :profile_picture_url %>
+  </div>
+
+  <div>
+    <%= form.submit "Save Profile", class: "btn btn-primary" %>
+  </div>
+<% end %>

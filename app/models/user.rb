@@ -7,6 +7,7 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  playlists_count        :integer
+#  profile_completed      :boolean          default(FALSE), not null
 #  profile_picture_url    :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
