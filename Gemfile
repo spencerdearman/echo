@@ -8,6 +8,10 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 
 gem "devise"
 
+# Apple Music API Gems
+gem 'apple_music'
+gem 'jwt'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

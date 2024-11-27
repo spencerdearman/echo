@@ -85,6 +85,9 @@ GEM
       rake (>= 10.4, < 14.0)
     appdev_support (0.2.1)
       tabulo
+    apple_music (0.1.0)
+      faraday (>= 0.15.4)
+      jwt (>= 2.2)
     awesome_print (1.9.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
@@ -202,6 +205,8 @@ GEM
     jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jwt (2.9.3)
+      base64
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -443,6 +448,7 @@ DEPENDENCIES
   active_link_to
   annotate
   appdev_support
+  apple_music
   awesome_print
   better_errors
   binding_of_caller
